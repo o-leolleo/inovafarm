@@ -48,12 +48,12 @@ export default {
   },
 
   methods: {
-    onClickDetail(sensorId) {
-      console.log(sensorId);
+    onClickDetail (sensorId) {
+      this.$router.push(`/table-list/${sensorId}`)
     },
 
-    onClickLocation(sensorId) {
-      console.log(sensorId);
+    onClickLocation (sensorId) {
+      console.log(sensorId)
     }
   }
 }

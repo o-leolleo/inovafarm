@@ -15,9 +15,10 @@ export default [
     view: 'UserProfile'
   },
   {
-    path: '/table-list',
+    path: '/table-list/:sensorId',
     name: 'Table List',
-    view: 'TableList'
+    view: 'TableList',
+    props: true
   },
   {
     path: '/typography',

@@ -46,6 +46,13 @@
 
 <script>
 export default {
+  props: {
+    sensorId: {
+      type: String,
+      default: ''
+    }
+  },
+
   data: () => ({
     headers: [
       {
