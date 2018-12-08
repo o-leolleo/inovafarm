@@ -13,8 +13,8 @@
       >
         <material-card
           color="green"
-          title="Simple Table"
-          text="Here is a subtitle for this table"
+          title="Dados históricos de vazão"
+          text="Dados coletados a cada 15 min..."
         >
           <v-data-table
             :headers="headers"
@@ -34,46 +34,8 @@
               slot="items"
               slot-scope="{ item }"
             >
-              <td>{{ item.name }}</td>
-              <td>{{ item.country }}</td>
-              <td>{{ item.city }}</td>
-              <td class="text-xs-right">{{ item.salary }}</td>
-            </template>
-          </v-data-table>
-        </material-card>
-      </v-flex>
-      <v-flex
-        md12
-      >
-        <material-card
-          color="green"
-          flat
-          full-width
-          title="Table on Plain Background"
-          text="Here is a subtitle for this table"
-        >
-          <v-data-table
-            :headers="headers"
-            :items="items.slice(0, 7)"
-            hide-actions
-          >
-            <template
-              slot="headerCell"
-              slot-scope="{ header }"
-            >
-              <span
-                class="subheading font-weight-light text--darken-3"
-                v-text="header.text"
-              />
-            </template>
-            <template
-              slot="items"
-              slot-scope="{ item }"
-            >
-              <td>{{ item.name }}</td>
-              <td>{{ item.country }}</td>
-              <td>{{ item.city }}</td>
-              <td class="text-xs-right">{{ item.salary }}</td>
+              <td>{{ item.dateTime }}</td>
+              <td>{{ item.flow }}</td>
             </template>
           </v-data-table>
         </material-card>
@@ -88,58 +50,35 @@ export default {
     headers: [
       {
         sortable: false,
-        text: 'Name',
-        value: 'name'
+        text: 'Data hora',
+        value: 'dateTime'
       },
       {
         sortable: false,
-        text: 'Country',
-        value: 'country'
-      },
-      {
-        sortable: false,
-        text: 'City',
-        value: 'city'
-      },
-      {
-        sortable: false,
-        text: 'Salary',
-        value: 'salary',
-        align: 'right'
+        text: 'Vazão',
+        value: 'flow'
       }
     ],
     items: [
       {
-        name: 'Dakota Rice',
-        country: 'Niger',
-        city: 'Oud-Tunrhout',
-        salary: '$35,738'
+        dateTime: '20/12/2018 12:00',
+        flow: '20'
       },
       {
-        name: 'Minerva Hooper',
-        country: 'Curaçao',
-        city: 'Sinaai-Waas',
-        salary: '$23,738'
+        dateTime: '20/12/2018 12:15',
+        flow: '25'
       }, {
-        name: 'Sage Rodriguez',
-        country: 'Netherlands',
-        city: 'Overland Park',
-        salary: '$56,142'
+        dateTime: '20/12/2018 12:30',
+        flow: '26'
       }, {
-        name: 'Philip Chanley',
-        country: 'Korea, South',
-        city: 'Gloucester',
-        salary: '$38,735'
+        dateTime: '20/12/2018 12:45',
+        flow: '29'
       }, {
-        name: 'Doris Greene',
-        country: 'Malawi',
-        city: 'Feldkirchen in Kārnten',
-        salary: '$63,542'
+        dateTime: '20/12/2018 13:00',
+        flow: '30'
       }, {
-        name: 'Mason Porter',
-        country: 'Chile',
-        city: 'Gloucester',
-        salary: '$78,615'
+        dateTime: '20/12/2018 13:15',
+        flow: '40'
       }
     ]
   })
