@@ -51,15 +51,6 @@
             <span class="white--text">{{ alertTooltipMessage }}</span>
           </v-tooltip>
         </v-layout>
-
-        <!-- <v-layout
-          v-if="irregular"
-          justify-start
-          class="pl-3"
-        >
-          <p v-if="flow <= flowMin" >fluxo abaixo do normal</p>
-          <p v-else>fluxo acima do normal</p>
-        </v-layout> -->
       </v-card-text>
       <v-card-actions>
         <v-btn
@@ -67,6 +58,13 @@
           color="success"
         >
           Detalhes
+        </v-btn>
+
+        <v-btn
+          flat
+          color="success"
+        >
+          Localização
         </v-btn>
       </v-card-actions>
     </v-card>
