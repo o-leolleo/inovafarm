@@ -5,40 +5,36 @@
     grid-list-xl
   >
     <v-layout wrap>
-      <v-flex
-        sm6
-        xs12
-        md6
-      >
-        <v-card>
-          <v-card-title primary-title>
-            <v-container fluid>
-              <div
-                class="headline"
-              >
-                Sensor da linha 1
-              </div>
+      <sensor-card
+        name="Sensor da linha 1"
+        :flow="20"
+        :flowMin="30"
+        :flowMax="100"
+      />
 
-              <v-progress-linear
-                indeterminate
-              />
-            </v-container>
-          </v-card-title>
-          <v-card-actions>
-            <v-btn
-              flat
-              color="success"
-            >
-              Detalhes
-            </v-btn>
-          </v-card-actions>
-        </v-card>
-      </v-flex>
+      <sensor-card
+        name="Sensor da linha 2"
+        :flow="20"
+        :flowMin="10"
+        :flowMax="100"
+      />
+
+      <sensor-card
+        name="Sensor da linha 3"
+        :flow="110"
+        :flowMin="10"
+        :flowMax="100"
+      />
     </v-layout>
   </v-container>
 </template>
 
 <script>
+import SensorCard from '@/components/app/SensorCard';
+
 export default {
-}
+  components: {
+    SensorCard
+  }
+};
 </script>

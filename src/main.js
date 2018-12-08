@@ -11,6 +11,9 @@ import './plugins'
 // Sync router with store
 import { sync } from 'vuex-router-sync'
 
+import 'vuetify/dist/vuetify.min.css' // Ensure you are using css-loader
+import 'material-design-icons-iconfont/dist/material-design-icons.css' // Ensure you are using css-loader
+
 // Application imports
 import App from './App'
 import i18n from '@/i18n'
