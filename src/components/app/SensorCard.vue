@@ -56,6 +56,7 @@
         <v-btn
           flat
           color="success"
+          @click="$emit('detail', id)"
         >
           Detalhes
         </v-btn>
@@ -63,6 +64,7 @@
         <v-btn
           flat
           color="success"
+          @click="$emit('location', id)"
         >
           Localização
         </v-btn>
@@ -74,6 +76,11 @@
 <script>
 export default {
   props: {
+    id: {
+      type: String,
+      default: ''
+    },
+
     name: {
       type: String,
       deafult: ''
