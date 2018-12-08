@@ -29,7 +29,7 @@
             />
           </v-list-tile-avatar>
           <v-list-tile-title class="title">
-            Vuetify MD
+            Nome do produto
           </v-list-tile-title>
         </v-list-tile>
         <v-divider/>
@@ -92,24 +92,9 @@ export default {
         text: 'Dashboard'
       },
       {
-        to: '/user-profile',
-        icon: 'mdi-account',
-        text: 'User Profile'
-      },
-      {
         to: '/table-list',
         icon: 'mdi-clipboard-outline',
         text: 'Table List'
-      },
-      {
-        to: '/typography',
-        icon: 'mdi-format-font',
-        text: 'Typography'
-      },
-      {
-        to: '/icons',
-        icon: 'mdi-chart-bubble',
-        text: 'Icons'
       },
       {
         to: '/maps',
