@@ -19,16 +19,17 @@
 </template>
 
 <script>
-import { mapState } from 'vuex'
+import { mapState, mapGetters } from 'vuex'
 import SensorCard from '@/components/app/SensorCard'
+import { nodesRef } from '../utils/firebase'
 
 export default {
   components: {
     SensorCard
   },
 
-  computed: {
-    ...mapState(['sensors'])
+  firebase: {
+    sensors: nodesRef
   },
 
   methods: {
