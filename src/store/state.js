@@ -5,6 +5,10 @@ export default {
     {
       id: '1',
       name: 'Sensor da Válvula 1',
+      position: {
+        lat: -9.4578987,
+        lng: -40.4894545
+      },
       readings: [
         {
           dateTime: '20/12/2018 12:00',
@@ -32,6 +36,10 @@ export default {
     {
       id: '2',
       name: 'Sensor da Válvula 2',
+      position: {
+        lat: -9.458242,
+        lng: -40.4897713
+      },
       readings: [
         {
           dateTime: '20/12/2018 12:00',
@@ -59,6 +67,10 @@ export default {
     {
       id: '3',
       name: 'Sensor da Válvula 3',
+      position: {
+        lat: -9.458059,
+        lng: -40.490327
+      },
       readings: [
         {
           dateTime: '20/12/2018 12:00',

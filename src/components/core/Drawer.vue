@@ -70,11 +70,11 @@ export default {
         text: 'Dashboard'
       },
 
-      {
-        to: '/maps',
-        icon: 'mdi-map-marker',
-        text: 'Maps'
-      }
+      // {
+      //   to: '/maps',
+      //   icon: 'mdi-map-marker',
+      //   text: 'Maps'
+      // }
     ],
     responsive: false
   }),

@@ -29,8 +29,9 @@ export default [
     view: 'Icons'
   },
   {
-    path: '/maps',
-    view: 'Maps'
+    path: '/maps/:sensorId?',
+    view: 'Maps',
+    props: true
   },
   {
     path: '/notifications',

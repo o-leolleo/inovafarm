@@ -6,7 +6,7 @@
   >
     <v-layout wrap>
       <sensor-card
-        v-for="({ id, name, readings }, key) in sensors"
+        v-for="({ id, name, readings }, key) in sensorList"
         :key="key"
         :id="id"
         :name="name"
@@ -25,13 +25,23 @@
 import { mapState } from 'vuex'
 import SensorCard from '@/components/app/SensorCard'
 
+const normalize = (str) => str.normalize('NFD').replace(/[\u0300-\u036f]/g, "").toLowerCase()
+
 export default {
   components: {
     SensorCard
   },
 
   computed: {
-    ...mapState(['sensors'])
+    ...mapState(['sensors']),
+
+    ...mapState('filter', {
+      filter: ({ value }) => value
+    }),
+
+    sensorList () {
+      return this.sensors.filter(({ name }) => normalize(name).match(new RegExp(normalize(this.filter))))
+    }
   },
 
   methods: {
@@ -40,7 +50,7 @@ export default {
     },
 
     onClickLocation (sensorId) {
-      console.log(sensorId)
+      this.$router.push('/maps')
     }
   }
 }

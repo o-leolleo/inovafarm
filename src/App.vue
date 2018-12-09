@@ -1,12 +1,22 @@
 <template>
   <v-app>
-    <core-toolbar />
+    <core-toolbar @input="setFilter"/>
 
     <core-drawer />
 
     <core-view />
   </v-app>
 </template>
+
+<script>
+import { mapMutations } from 'vuex'
+
+export default {
+  methods: {
+    ...mapMutations('filter', ['setFilter'])
+  }
+}
+</script>
 
 <style lang="scss">
 @import '@/styles/index.scss';

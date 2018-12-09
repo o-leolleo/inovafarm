@@ -29,6 +29,15 @@
         layout
         py-2
       >
+        <v-text-field
+          v-if="responsiveInput"
+          :value="value"
+          class="mr-4 mt-2 purple-input"
+          label="Filtrar..."
+          hide-details
+          color="purple"
+          @input="$emit('input', $event)"
+        />
         <router-link
           v-ripple
           class="toolbar-items"
@@ -48,6 +57,13 @@ import {
 } from 'vuex'
 
 export default {
+  props: {
+    value: {
+      type: String,
+      default: ''
+    }
+  },
+
   data: () => ({
     notifications: [],
     title: null,

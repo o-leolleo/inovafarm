@@ -59,14 +59,6 @@
         >
           Detalhes
         </v-btn>
-
-        <v-btn
-          flat
-          color="success"
-          @click="$emit('location', id)"
-        >
-          Localização
-        </v-btn>
       </v-card-actions>
     </v-card>
   </v-flex>
