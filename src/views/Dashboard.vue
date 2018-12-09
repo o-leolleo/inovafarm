@@ -6,15 +6,18 @@
   >
     <v-layout wrap>
       <sensor-card
-        v-for="({ id, name, flow }, key) in sensors"
+        v-for="({ id, name, readings }, key) in sensors"
         :key="key"
         :id="id"
         :name="name"
-        :flow="flow"
+        :flow="readings[readings.length - 1].flow"
+        :flow-min="10"
+        :flow-max="40"
         @detail="onClickDetail"
         @location="onClickLocation"
       />
     </v-layout>
+
   </v-container>
 </template>
 

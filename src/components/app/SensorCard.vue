@@ -59,6 +59,14 @@
         >
           Detalhes
         </v-btn>
+
+        <v-btn
+          flat
+          color="success"
+          @click="$emit('location', id)"
+        >
+          Localização
+        </v-btn>
       </v-card-actions>
     </v-card>
   </v-flex>
@@ -82,26 +90,31 @@ export default {
       default: 20
     },
 
-    reference: {
+    flowMax: {
       type: Number,
-      default: 30
+      default: 100
+    },
+
+    flowMin: {
+      type: Number,
+      default: 1
     }
   },
 
   computed: {
     irregular () {
-      return this.flow >= this.reference || this.flow <= this.reference
+      return this.flow >= this.flowMax || this.flow <= this.flowMin
     },
 
     alertTooltipMessage () {
-      if (this.flow >= this.reference) return 'Fluxo acima do normal'
-      else if (this.flow <= this.reference) return 'Fluxo abaixo do normal'
+      if (this.flow >= this.flowMax) return 'Fluxo acima do normal'
+      else if (this.flow <= this.flowMin) return 'Fluxo abaixo do normal'
       return ''
     },
 
     icon () {
-      if (this.flow >= this.reference) return 'arrow_upward'
-      else if (this.flow <= this.reference) return 'arrow_downward'
+      if (this.flow >= this.flowMax) return 'arrow_upward'
+      else if (this.flow <= this.flowMin) return 'arrow_downward'
       return ''
     }
   }

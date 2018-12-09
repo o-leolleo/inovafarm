@@ -25,6 +25,15 @@ sync(store, router)
 
 Vue.config.productionTip = false
 
+import * as VueGoogleMaps from 'vue2-google-maps'
+
+Vue.use(VueGoogleMaps, {
+  load: {
+    key: process.env.VUE_APP_API_KEY,
+    libraries: 'places' // This is required if you use the Autocomplete plugin
+  }
+})
+
 /* eslint-disable no-new */
 new Vue({
   i18n,
