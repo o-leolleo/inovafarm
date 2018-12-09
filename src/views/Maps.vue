@@ -51,7 +51,7 @@ export default {
     center () {
       return (this.sensor && this.sensor.position) || this.positions[this.positions.length - 1] || { lat: -9.4092723, lng: -40.5091752 }
     }
-  },
+  }
 }
 </script>
 

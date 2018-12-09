@@ -74,7 +74,7 @@ export default {
 
     name: {
       type: String,
-      deafult: ''
+      default: ''
     },
 
     flow: {
