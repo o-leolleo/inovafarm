@@ -5,16 +5,23 @@
     grid-list-xl
   >
     <v-layout wrap>
-      <sensor-card
+      <v-flex
         v-for="({ id, name, readings }, key) in sensorList"
         :key="key"
-        :id="id"
-        :name="name"
-        :flow="readings[readings.length - 1].flow"
-        :flow-min="10"
-        :flow-max="40"
-        @detail="onClickDetail"
-      />
+        xs12
+        sm6
+        md6
+      >
+        <sensor-card
+          v-if="readings[readings.length - 1]"
+          :id="id"
+          :name="name"
+          :flow="readings[readings.length - 1].flow "
+          :flow-min="10"
+          :flow-max="40"
+          @detail="onClickDetail"
+        />
+      </v-flex>
     </v-layout>
 
   </v-container>
