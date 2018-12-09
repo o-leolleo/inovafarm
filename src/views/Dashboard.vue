@@ -6,32 +6,11 @@
   >
     <v-layout wrap>
       <sensor-card
-        id="1"
-        name="Sensor da linha 1"
-        :flow="20"
-        :flowMin="30"
-        :flowMax="100"
-        @detail="onClickDetail"
-        @location="onClickLocation"
-      />
-
-      <sensor-card
-        id="2"
-        name="Sensor da linha 2"
-        :flow="20"
-        :flowMin="10"
-        :flowMax="100"
-        @detail="onClickDetail"
-        @location="onClickLocation"
-
-      />
-
-      <sensor-card
-        id="3"
-        name="Sensor da linha 3"
-        :flow="110"
-        :flowMin="10"
-        :flowMax="100"
+        v-for="({ id, name, flow }, key) in sensors"
+        :key="key"
+        :id="id"
+        :name="name"
+        :flow="flow"
         @detail="onClickDetail"
         @location="onClickLocation"
       />
@@ -40,11 +19,16 @@
 </template>
 
 <script>
-import SensorCard from '@/components/app/SensorCard';
+import { mapState } from 'vuex'
+import SensorCard from '@/components/app/SensorCard'
 
 export default {
   components: {
     SensorCard
+  },
+
+  computed: {
+    ...mapState(['sensors'])
   },
 
   methods: {

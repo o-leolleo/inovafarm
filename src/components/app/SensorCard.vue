@@ -7,7 +7,6 @@
     <v-card>
       <v-card-title
         class="pb-0"
-        primary-title
       >
         <div class="headline">
           {{ name }}
@@ -91,31 +90,26 @@ export default {
       default: 20
     },
 
-    flowMax: {
+    reference: {
       type: Number,
-      default: 100
-    },
-
-    flowMin: {
-      type: Number,
-      default: 1
+      default: 30
     }
   },
 
   computed: {
     irregular () {
-      return this.flow >= this.flowMax || this.flow <= this.flowMin
+      return this.flow >= this.reference || this.flow <= this.reference
     },
 
     alertTooltipMessage () {
-      if (this.flow >= this.flowMax) return 'Fluxo acima do normal'
-      else if (this.flow <= this.flowMin) return 'Fluxo abaixo do normal'
+      if (this.flow >= this.reference) return 'Fluxo acima do normal'
+      else if (this.flow <= this.reference) return 'Fluxo abaixo do normal'
       return ''
     },
 
     icon () {
-      if (this.flow >= this.flowMax) return 'arrow_upward'
-      else if (this.flow <= this.flowMin) return 'arrow_downward'
+      if (this.flow >= this.reference) return 'arrow_upward'
+      else if (this.flow <= this.reference) return 'arrow_downward'
       return ''
     }
   }
