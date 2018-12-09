@@ -30,9 +30,9 @@
 <script>
 import { mapState } from 'vuex'
 import SensorCard from '@/components/app/SensorCard'
-import _ from 'lodash';
+import _ from 'lodash'
 
-const normalize = (str) => str.normalize('NFD').replace(/[\u0300-\u036f]/g, "").toLowerCase()
+const normalize = (str) => str.normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase()
 
 export default {
   components: {
