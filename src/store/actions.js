@@ -3,7 +3,6 @@ import firebase from '@/utils/firebase'
 
 export default {
   fetchSensor ({ commit }, sensorName) {
-    console.log(sensorName)
     firebase.database().ref(sensorName)
       .on('value',
         (snapshot) => {

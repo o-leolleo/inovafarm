@@ -18,4 +18,3 @@ if (firebase.apps && firebase.apps.length > 0) {
 }
 
 export default firebaseApp
-// export const nodesRef = firebase.database().ref('NODE1')
