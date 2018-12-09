@@ -1,6 +1,6 @@
 <template>
   <v-app>
-    <core-toolbar />
+    <core-toolbar @input="setFilter"/>
 
     <core-drawer />
 
@@ -9,12 +9,19 @@
 </template>
 
 <script>
-import { config } from '@/utils/firebase'
-import firebase from 'firebase'
+import { mapMutations, mapActions } from 'vuex'
+import firebase from '@/utils/firebase'
 
 export default {
   mounted () {
-    firebase.initializeApp(config)
+    window.firebase = firebase
+    this.fetchSensor('NODE1')
+  },
+
+  methods: {
+    ...mapMutations('filter', ['setFilter']),
+
+    ...mapActions(['fetchSensor'])
   }
 }
 </script>

@@ -34,7 +34,7 @@
               slot="items"
               slot-scope="{ item }"
             >
-              <td>{{ item.dateTime }}</td>
+              <td>{{ item.timestamp }}</td>
               <td>{{ item.flow }}</td>
             </template>
           </v-data-table>
@@ -45,6 +45,8 @@
 </template>
 
 <script>
+import { mapGetters } from 'vuex'
+
 export default {
   props: {
     sensorId: {
@@ -57,37 +59,27 @@ export default {
     headers: [
       {
         sortable: false,
-        text: 'Data hora',
-        value: 'dateTime'
+        text: 'Timestamp',
+        value: 'timestamp'
       },
       {
         sortable: false,
         text: 'Vazão',
         value: 'flow'
       }
-    ],
-    items: [
-      {
-        dateTime: '20/12/2018 12:00',
-        flow: '20'
-      },
-      {
-        dateTime: '20/12/2018 12:15',
-        flow: '25'
-      }, {
-        dateTime: '20/12/2018 12:30',
-        flow: '26'
-      }, {
-        dateTime: '20/12/2018 12:45',
-        flow: '29'
-      }, {
-        dateTime: '20/12/2018 13:00',
-        flow: '30'
-      }, {
-        dateTime: '20/12/2018 13:15',
-        flow: '40'
-      }
     ]
-  })
+  }),
+
+  computed: {
+    ...mapGetters(['getSensorById']),
+
+    sensor () {
+      return this.getSensorById(this.$route.params.sensorId)
+    },
+
+    items () {
+      return (this.sensor && this.sensor.readings) || []
+    }
+  }
 }
 </script>
