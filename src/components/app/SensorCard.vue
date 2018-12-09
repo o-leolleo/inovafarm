@@ -10,6 +10,7 @@
 
     <v-card-text>
       <v-layout
+        v-if="flow !== null"
         row
         justify-space-around
         class="pl-3 pr-3"
@@ -45,6 +46,15 @@
           <span class="white--text">{{ alertTooltipMessage }}</span>
         </v-tooltip>
       </v-layout>
+
+      <v-layout
+        v-else
+        row
+        justify-space-around
+        class="pl-3 pr-3"
+      >
+        <v-progress-linear indeterminate />
+      </v-layout>
     </v-card-text>
     <v-card-actions>
       <v-btn
@@ -71,11 +81,6 @@ export default {
       default: ''
     },
 
-    flow: {
-      type: Number,
-      default: 20
-    },
-
     flowMax: {
       type: Number,
       default: 100
@@ -84,6 +89,11 @@ export default {
     flowMin: {
       type: Number,
       default: 1
+    },
+
+    readings: {
+      type: Array,
+      default: () => []
     }
   },
 
@@ -102,6 +112,10 @@ export default {
       if (this.flow >= this.flowMax) return 'arrow_upward'
       else if (this.flow <= this.flowMin) return 'arrow_downward'
       return ''
+    },
+
+    flow () {
+      return this.readings.length ? _.last(this.readings).flow : null
     }
   }
 }

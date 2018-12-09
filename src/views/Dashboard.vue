@@ -6,6 +6,17 @@
   >
     <v-layout wrap>
       <v-flex
+        xs12
+        sm12
+        md12
+        lg12
+      >
+        <p class="headline">Sistemas de irrigação {{ flow ? 'funcionando' : 'desligado' }} 
+          <v-icon :color="flow ? 'green' : 'red'">{{ flow ? 'check_circle' : 'info' }}</v-icon>
+        </p>
+      </v-flex>
+
+      <v-flex
         v-for="({ id, name, readings }, key) in sensorList"
         :key="key"
         xs12
@@ -13,10 +24,9 @@
         md6
       >
         <sensor-card
-          v-if="readings[readings.length - 1]"
           :id="id"
           :name="name"
-          :flow="readings[readings.length - 1].flow "
+          :readings="readings"
           :flow-min="10"
           :flow-max="40"
           @detail="onClickDetail"
@@ -28,7 +38,7 @@
 </template>
 
 <script>
-import { mapState } from 'vuex'
+import { mapState, mapGetters } from 'vuex'
 import SensorCard from '@/components/app/SensorCard'
 import _ from 'lodash'
 
@@ -40,6 +50,8 @@ export default {
   },
 
   computed: {
+    ...mapGetters(['flow']),
+
     ...mapState(['sensors']),
 
     ...mapState('filter', {

@@ -10,12 +10,11 @@
 
 <script>
 import { mapMutations, mapActions } from 'vuex'
-import firebase from '@/utils/firebase'
 
 export default {
   mounted () {
-    window.firebase = firebase
     this.fetchSensor('NODE1')
+    this.fetchSensor('NODE2')
   },
 
   methods: {
